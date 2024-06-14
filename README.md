@@ -17,7 +17,7 @@
 Github Release: [https://github.com/SpaceTimee/Console-HostChecker/releases](https://github.com/SpaceTimee/Console-HostChecker/releases)
 
 ## 食用方式
-运行 Console HostChecker 脚本 -> 按照提示操作即可
+在 pwsh 7.x 环境中运行 Console-HostChecker.ps1 脚本 -> 按照提示操作即可
 
 ## 开发者
 **Space Time**
