@@ -1,0 +1,13 @@
+{
+    // https://go.microsoft.com/fwlink/?linkid=830387
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "Console-HostChecker",
+            "type": "PowerShell",
+            "request": "launch",
+            "script": "${workspaceFolder}/Console-HostChecker.ps1",
+            "args": []
+        }
+    ]
+}

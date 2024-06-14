@@ -1,7 +1,8 @@
-﻿Class App {
+Class App {
     [void] Main() {
         $this.Welcome()
-        $this.WriteResult($this.CreateJobs($this.GetHostPath()))
+        $this.WriteTestResult($this.CreateTestJobs($this.GetHostPath()))
+        $this.Closing()
     }
 
     hidden [void] Welcome() {
@@ -12,38 +13,36 @@
     hidden [string] GetHostPath() {
         [string] $hostPath = Join-Path $PSScriptRoot "Cealing-Host.json"
 
-        if (Test-Path $hostPath) { return $hostPath }
-        else {
-            while ($true) {
-                hostPath = Read-Host "输入 Cealing-Host.json 文件路径"
+        while (-not (Test-Path $hostPath)) { $hostPath = Read-Host "输入 Cealing-Host.json 文件路径" }
 
-                if (Test-Path $hostPath) { return $hostPath }
-                else { Write-Host "文件不存在" }
-            }
-        }
-
-        throw
+        return $hostPath
     }
 
-    hidden [object[]] CreateJobs([string] $hostPath) {
-        [object[]] $testJobs = @()
+    hidden [array] CreateTestJobs([string] $hostPath) {
+        [array] $testJobs = @()
 
         foreach ($hostRule in Get-Content $hostPath -Raw | ConvertFrom-Json) {
             $testJobs += Start-ThreadJob {
-                param ($hostRule)
+                param ([array] $hostRule)
+                [int] $testPort = $hostRule[1] -eq [string]::Empty ? 80 : 443
+                [string] $testResult = (Test-Connection $hostRule[2] -TcpPort $testPort -Count 1 -IPv4) ? "成功" : "失败 ($($hostRule[0]))"
 
-                Write-Host "$($hostRule[2]): $((Test-Connection $hostRule[2] -TcpPort ($hostRule[1] -eq [string]::Empty ? 80 : 443) -Count 1 -IPv4) ? "成功" : "失败 ($($hostRule[0]))")"
+                Write-Host "$($hostRule[2]): $testResult"
             } -ArgumentList (, $hostRule)
         }
 
         return $testJobs
     }
 
-    hidden [void] WriteResult([object[]] $testJobs) {
+    hidden [void] WriteTestResult([array] $testJobs) {
         while ($testJobs.State -ne "Completed") {
-            foreach ($testResult in Receive-Job $testJobs) { Write-Host $testResult }
+            foreach ($testOutput in Receive-Job $testJobs) { Write-Host $testOutput }
         }
 
-        foreach ($testResult in Receive-Job $testJobs -Wait -AutoRemoveJob) { Write-Host $testResult }
+        foreach ($testOutput in Receive-Job $testJobs -Wait -AutoRemoveJob) { Write-Host $testOutput }
+    }
+
+    hidden [void] Closing() {
+        Write-Host "测试结果仅供参考" -ForegroundColor Red
     }
 }
