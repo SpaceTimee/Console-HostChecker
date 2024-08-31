@@ -25,7 +25,7 @@ Class App {
             $testJobs += Start-ThreadJob {
                 param ([array] $hostRule)
                 [int] $testPort = $hostRule[1] -eq [string]::Empty ? 80 : 443
-                [string] $testResult = (Test-Connection $hostRule[2] -TcpPort $testPort -Count 1 -IPv4) ? "成功" : "失败 ($($hostRule[0]))"
+                [string] $testResult = (Test-Connection $hostRule[2] -TcpPort $testPort -Count 1) ? "成功" : "失败 ($($hostRule[0]))"
 
                 Write-Host "$($hostRule[2]): $testResult"
             } -ArgumentList (, $hostRule)
