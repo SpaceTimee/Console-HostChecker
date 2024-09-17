@@ -13,7 +13,7 @@ Class App {
     hidden [string] GetHostPath() {
         [string] $hostPath = Join-Path $PSScriptRoot "Cealing-Host.json"
 
-        while (-not (Test-Path $hostPath)) { $hostPath = Read-Host "输入 Cealing-Host.json 文件路径" }
+        while (-not (Test-Path $hostPath)) { $hostPath = (Read-Host "输入 Cealing-Host.json 文件路径").Trim("""") }
 
         return $hostPath
     }
