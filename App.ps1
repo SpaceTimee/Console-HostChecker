@@ -24,7 +24,9 @@ Class App {
         foreach ($hostRule in Get-Content $hostPath -Raw | ConvertFrom-Json) {
             $testJobs += Start-ThreadJob {
                 param ([array] $hostRule)
-                [string] $testResult = (Test-Connection $hostRule[2] -TcpPort 443 -Count 1) ? "成功" : "失败 ($($hostRule[0]))"
+                if (-not [string]::IsNullOrWhiteSpace($hostRule[2])) {
+                    [string] $testResult = (Test-Connection $hostRule[2] -TcpPort 443 -Count 1) ? "成功" : "失败 ($($hostRule[0]))"
+                }
 
                 Write-Host "$($hostRule[2]): $testResult"
             } -ArgumentList (, $hostRule)
