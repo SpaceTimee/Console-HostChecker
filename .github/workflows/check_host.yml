@@ -1,0 +1,53 @@
+name: Check Host
+
+on:
+  schedule:
+    - cron: "*/5 * * * *"
+  push:
+    branches:
+      - "**"
+  workflow_dispatch:
+
+jobs:
+  check-host:
+    name: Check Host
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Fetch Git Folder & Scripts
+        uses: actions/checkout@v6
+        with:
+          sparse-checkout: |
+            .git
+            App.ps1
+            Console-HostChecker.ps1
+
+      - name: Use Warp
+        uses: fscarmen/warp-on-actions@v1.4
+
+      - name: Get Current Time
+        run: |
+          BJT_TIME="$(TZ="Asia/Shanghai" date "+%Y-%m-%d %H:%M:%S")"
+
+          echo "BJT_TIME="$BJT_TIME"" >> "$GITHUB_ENV"
+          echo "BJT Time: $BJT_TIME"
+
+      - name: Download Host
+        run: wget "https://github.com/SpaceTimee/Cealing-Host/raw/main/Cealing-Host.json"
+
+      - name: Run Script
+        shell: pwsh
+        continue-on-error: true
+        run: ./Console-HostChecker.ps1 -trans "."
+
+      - name: Rename Transcipt
+        run: mv "Trans.log" "CheckResult.txt"
+
+      - name: Commit Changes
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add "CheckResult.txt"
+          git commit -m "Check Run Time: $BJT_TIME"
+          git pull --rebase "origin" "main"
+          git push
