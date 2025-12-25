@@ -1,6 +1,6 @@
 **********************
 PowerShell transcript start
-Start time: 20251225211616
+Start time: 20251225213303
 **********************
 Console HostChecker 启动!
 104.16.89.20: 成功
@@ -134,5 +134,5 @@ guce.yahoo.com: 成功
 测试结果仅供参考
 **********************
 PowerShell transcript end
-End time: 20251225211623
+End time: 20251225213311
 **********************
