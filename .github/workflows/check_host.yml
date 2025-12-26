@@ -1,5 +1,9 @@
 name: Check Host
 
+permissions:
+  contents: write
+  actions: write
+
 on:
   schedule:
     - cron: "*/5 * * * *"
@@ -23,7 +27,19 @@ jobs:
             Console-HostChecker.ps1
 
       - name: Use Warp
+        id: warp
         uses: fscarmen/warp-on-actions@v1.4
+        continue-on-error: true
+        timeout-minutes: 5
+
+      - name: Check Warp Status
+        if: steps.warp.outcome != 'success'
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          echo "Warp step failed or timed out. Cancelling workflow to mark as skipped."
+          gh run cancel ${{ github.run_id }}
+          sleep 60
 
       - name: Get Current Time
         run: |
