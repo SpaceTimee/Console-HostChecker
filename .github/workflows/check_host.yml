@@ -12,6 +12,7 @@ jobs:
   check-host:
     name: Check Host
     runs-on: ubuntu-latest
+    timeout-minutes: 10
 
     steps:
       - name: Fetch Git Folder & Scripts
