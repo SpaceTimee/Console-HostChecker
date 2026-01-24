@@ -1,6 +1,6 @@
 **********************
 PowerShell transcript start
-Start time: 20260124055900
+Start time: 20260124063001
 **********************
 Console HostChecker 启动!
 151.101.78.208: 成功
@@ -26,10 +26,10 @@ Console HostChecker 启动!
 109.238.90.239: 成功
 47.102.115.14: 成功
 34.49.133.3: 成功
+consent.yahoo.com: 成功
+guce.yahoo.com: 成功
 [2001:67c:2960:6464::b4de:6697]: 成功
 [2001:67c:2960:6464::b4de:6a0b]: 成功
-guce.yahoo.com: 成功
-consent.yahoo.com: 成功
 20.43.160.189: 成功
 20.43.161.105: 成功
 [2001:67c:2960:6464::ac40:9647]: 成功
@@ -134,5 +134,5 @@ consent.yahoo.com: 成功
 测试结果仅供参考
 **********************
 PowerShell transcript end
-End time: 20260124055906
+End time: 20260124063008
 **********************
