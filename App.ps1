@@ -6,23 +6,21 @@ Class App {
     }
 
     hidden [void] Welcome() {
-        Clear-Host
+        try { Clear-Host } catch { Write-Verbose $_ }
         Write-Host "Console HostChecker 启动!" -ForegroundColor Red
     }
 
     hidden [string] GetHostPath() {
         [string] $hostPath = Join-Path $PSScriptRoot "Cealing-Host.json"
 
-        while (-not (Test-Path $hostPath -PathType Leaf)) { $hostPath = (Read-Host "输入 Cealing-Host.json 文件路径").Trim("""") }
+        while (-not (Test-Path -LiteralPath $hostPath -PathType Leaf)) { $hostPath = (Read-Host "输入 Cealing-Host.json 文件路径").Trim("""") }
 
         return $hostPath
     }
 
     hidden [array] CreateTestJobs([string] $hostPath) {
-        [array] $testJobs = @()
-
-        foreach ($hostRule in Get-Content $hostPath -Raw | ConvertFrom-Json) {
-            $testJobs += Start-ThreadJob {
+        [array] $testJobs = foreach ($hostRule in Get-Content $hostPath -Raw | ConvertFrom-Json) {
+            Start-ThreadJob {
                 param ([array] $hostRule)
 
                 if ([string]::IsNullOrWhiteSpace($hostRule[2])) { continue }
