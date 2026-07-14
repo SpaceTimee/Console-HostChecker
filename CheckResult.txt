@@ -1,6 +1,6 @@
 **********************
 PowerShell transcript start
-Start time: 20260714112014
+Start time: 20260714125958
 **********************
 Console HostChecker 启动!
 WARNING: The installation path for the script does not currently appear in the CurrentUser path environment variable. To make the script discoverable, add the script installation path, /home/runner/.local/share/powershell/Modules, to the environment PATH variable.
@@ -18,5 +18,5 @@ PS>$global:?
 False
 **********************
 PowerShell transcript end
-End time: 20260714112032
+End time: 20260714130013
 **********************
