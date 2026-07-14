@@ -1,12 +1,12 @@
 Class App {
-    [void] Main() {
+    [void] Main([bool] $remote) {
         $this.Welcome()
-        $this.WriteTestResult($this.CreateTestJobs($this.GetHostPath()))
+        $this.WriteTestResult($remote ? $this.CreateCheckJobs($this.GetHostPath()) : $this.CreateTestJobs($this.GetHostPath()))
         $this.Closing()
     }
 
     hidden [void] Welcome() {
-        try { Clear-Host } catch { Write-Verbose $_ }
+        try { Clear-Host -ErrorAction Stop } catch { Write-Verbose $_ }
         Write-Host "Console HostChecker 启动!" -ForegroundColor Red
     }
 
@@ -18,8 +18,35 @@ Class App {
         return $hostPath
     }
 
+    hidden [array] CreateCheckJobs([string] $hostPath) {
+        return @(Start-ThreadJob {
+            param ([string] $hostPath)
+
+            [hashtable] $seenTargets = @{}
+            [string[]] $hostTargets = @(
+                foreach ($hostRule in ConvertFrom-Json (Get-Content -LiteralPath $hostPath -Raw)) {
+                    if ([string]::IsNullOrWhiteSpace($hostRule[2]) -or $seenTargets.ContainsKey($hostRule[2])) { continue }
+                    $seenTargets[$hostRule[2]] = $true
+                    $hostRule[2]
+                }
+            )
+
+            if ($hostTargets.Count -eq 0) { return }
+
+            if (-not (Get-Module -ListAvailable "Console-CensorChecker")) {
+                Install-PSResource "Console-CensorChecker" -TrustRepository -ErrorAction Stop
+            }
+
+            Import-Module "Console-CensorChecker" -ErrorAction Stop
+
+            Invoke-Check $hostTargets | ForEach-Object {
+                "$($_.Target): $($_.Latency -eq [int]::MaxValue ? "超时" : "$($_.Latency) ms")"
+            }
+        } -ArgumentList $hostPath)
+    }
+
     hidden [array] CreateTestJobs([string] $hostPath) {
-        [array] $testJobs = foreach ($hostRule in Get-Content $hostPath -Raw | ConvertFrom-Json) {
+        return @(foreach ($hostRule in ConvertFrom-Json (Get-Content -LiteralPath $hostPath -Raw)) {
             Start-ThreadJob {
                 param ([array] $hostRule)
 
@@ -27,15 +54,13 @@ Class App {
 
                 [string] $testResult = (Test-Connection $hostRule[2] -TcpPort 443 -Count 1) ? "成功" : "失败 ($($hostRule[0]))"
 
-                Write-Host "$($hostRule[2]): $testResult"
+                "$($hostRule[2]): $testResult"
             } -ArgumentList (, $hostRule)
-        }
-
-        return $testJobs
+        })
     }
 
     hidden [void] WriteTestResult([array] $testJobs) {
-        while ($testJobs.State -ne "Completed") {
+        while ($testJobs.State -eq "Running" -or $testJobs.State -eq "NotStarted") {
             foreach ($testOutput in Receive-Job $testJobs) { Write-Host $testOutput }
         }
 

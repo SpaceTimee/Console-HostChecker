@@ -12,7 +12,7 @@ jobs:
   check-host:
     name: Check Host
     runs-on: ubuntu-latest
-    timeout-minutes: 10
+    timeout-minutes: 30
 
     steps:
       - name: Fetch Git Folder & Scripts
@@ -39,7 +39,7 @@ jobs:
       - name: Run Script
         shell: pwsh
         continue-on-error: true
-        run: ./Console-HostChecker.ps1 -trans "."
+        run: ./Console-HostChecker.ps1 -trans "." -remote
 
       - name: Rename Transcipt
         run: mv "Trans.log" "CheckResult.txt"
