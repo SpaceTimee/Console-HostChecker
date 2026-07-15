@@ -7,9 +7,6 @@
 
 * 适用平台: Any
 
-## 词汇解释
-**[Sheas Cealer Dictionary](https://github.com/SpaceTimee/Sheas-Cealer/wiki/Sheas-Cealer-Dictionary)**
-
 ## 注意事项
 本项目仅供测试 Cealing Host 的 ip 连通性，无意绕过任何审查设备的审查
 
