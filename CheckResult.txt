@@ -1,17 +1,16 @@
 **********************
 PowerShell transcript start
-Start time: 20260714163311
+Start time: 20260715084815
 **********************
 Console HostChecker 启动!
 WARNING: The installation path for the script does not currently appear in the CurrentUser path environment variable. To make the script discoverable, add the script installation path, /home/runner/.local/share/powershell/Modules, to the environment PATH variable.
-Console-CensorChecker 1.1.4.7
 PS>TerminatingError(): "The running command stopped because the preference variable "ErrorActionPreference" or common parameter is set to Stop: 检测页面加载超时"
 >> TerminatingError(): "The running command stopped because the preference variable "ErrorActionPreference" or common parameter is set to Stop: 检测页面加载超时"
 >> TerminatingError(): "The running command stopped because the preference variable "ErrorActionPreference" or common parameter is set to Stop: 检测页面加载超时"
 >> TerminatingError(): "The running command stopped because the preference variable "ErrorActionPreference" or common parameter is set to Stop: 检测页面加载超时"
-Exception: /home/runner/work/Console-HostChecker/Console-HostChecker/App.ps1:68
+Exception: /home/runner/work/Console-HostChecker/Console-HostChecker/App.ps1:64
 Line |
-  68 |              foreach ($testOutput in Receive-Job $testJobs) { Write-Ho …
+  64 |              foreach ($testOutput in Receive-Job $testJobs) { Write-Ho …
      |                                      ~~~~~~~~~~~~~~~~~~~~~
      | 检测页面加载超时
 
@@ -19,5 +18,5 @@ PS>$global:?
 False
 **********************
 PowerShell transcript end
-End time: 20260714163328
+End time: 20260715084859
 **********************
