@@ -1,22 +1,146 @@
 **********************
 PowerShell transcript start
-Start time: 20260715091218
+Start time: 20260715102241
 **********************
 Console HostChecker 启动!
 WARNING: The installation path for the script does not currently appear in the CurrentUser path environment variable. To make the script discoverable, add the script installation path, /home/runner/.local/share/powershell/Modules, to the environment PATH variable.
-PS>TerminatingError(): "The running command stopped because the preference variable "ErrorActionPreference" or common parameter is set to Stop: 浏览器调试服务启动超时"
->> TerminatingError(): "The running command stopped because the preference variable "ErrorActionPreference" or common parameter is set to Stop: 浏览器调试服务启动超时"
->> TerminatingError(): "The running command stopped because the preference variable "ErrorActionPreference" or common parameter is set to Stop: 浏览器调试服务启动超时"
->> TerminatingError(): "The running command stopped because the preference variable "ErrorActionPreference" or common parameter is set to Stop: 浏览器调试服务启动超时"
-Exception: /home/runner/work/Console-HostChecker/Console-HostChecker/App.ps1:67
-Line |
-  67 |  … ch ($testOutput in Receive-Job $testJobs -Wait -AutoRemoveJob) { Writ …
-     |                       ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-     | 浏览器调试服务启动超时
-
-PS>$global:?
-False
+172.64.146.116: 92 ms
+183.56.143.147: 17 ms
+47.102.115.14: 26 ms
+20.43.160.189: 84 ms
+20.43.161.105: 80 ms
+20.27.177.113: 63 ms
+104.16.89.20: 211 ms
+64.29.17.193: 64 ms
+76.76.21.21: 57 ms
+20.205.243.168: 91 ms
+89.149.221.236: 201 ms
+172.66.132.196: 198 ms
+185.199.108.133: 118 ms
+185.199.110.154: 125 ms
+178.162.151.56: 201 ms
+178.162.151.58: 201 ms
+89.222.127.8: 209 ms
+192.0.77.3: 146 ms
+157.240.22.169: 176 ms
+5.79.104.115: 210 ms
+192.0.77.40: 152 ms
+109.238.90.239: 202 ms
+178.175.132.22: 230 ms
+109.236.85.28: 246 ms
+104.17.35.109: 234 ms
+108.181.143.72: 248 ms
+3.167.200.113: 180 ms
+67.63.60.231: 204 ms
+104.18.223.226: 178 ms
+96.126.98.220: 192 ms
+23.39.61.133: 180 ms
+207.241.237.2: 177 ms
+104.20.8.2: 204 ms
+140.82.114.17: 230 ms
+13.107.42.13: 65 ms
+157.240.27.174: 264 ms
+140.82.113.22: 236 ms
+198.185.159.145: 215 ms
+208.80.154.240: 238 ms
+hub-origin.docker.com: 238 ms
+185.70.42.20: 250 ms
+34.111.15.3: 200 ms
+34.111.108.175: 225 ms
+162.159.130.232: 176 ms
+162.159.136.232: 180 ms
+34.111.35.152: 196 ms
+162.159.130.234: 178 ms
+185.15.59.224: 278 ms
+64.239.109.1: 58 ms
+185.70.42.36: 274 ms
+5.61.23.11: 206 ms
+216.66.8.43: 245 ms
+185.70.42.40: 251 ms
+185.205.70.10: 250 ms
+5.61.23.30: 210 ms
+104.16.223.104: 231 ms
+185.70.42.37: 262 ms
+162.125.248.18: 199 ms
+176.119.200.8: 265 ms
+185.70.42.118: 270 ms
+185.70.42.63: 266 ms
+185.70.42.71: 248 ms
+185.70.42.51: 263 ms
+151.101.193.224: 117 ms
+176.123.7.105: 290 ms
+205.220.231.24: 173 ms
+185.70.42.70: 243 ms
+185.70.42.39: 274 ms
+185.70.42.45: 253 ms
+185.70.42.69: 255 ms
+149.154.174.200: 240 ms
+194.0.147.12: 273 ms
+172.66.137.6: 196 ms
+23.19.72.223: 185 ms
+149.154.174.100: 244 ms
+149.154.170.200: 313 ms
+31.216.144.5: 244 ms
+162.159.138.60: 170 ms
+146.75.33.140: 242 ms
+199.232.196.193: 172 ms
+104.18.70.106: 184 ms
+66.203.125.15: 240 ms
+8.212.101.92: 195 ms
+37.218.242.53: 214 ms
+192.0.80.240: 229 ms
+146.75.36.81: 234 ms
+66.203.127.11: 245 ms
+37.218.243.72: 223 ms
+149.154.170.100: 379 ms
+103.107.198.191: 315 ms
+146.75.117.164: 262 ms
+118.214.247.61: 337 ms
+guce.yahoo.com: 58 ms
+[2001:67c:2960:6464::b4de:6697]: 超时
+[2001:67c:2960:6464::b4de:6a0b]: 超时
+[2001:67c:2960:6464::ac40:9647]: 超时
+151.101.0.84: 161 ms
+[2001:67c:2960:6464::a04f:680a]: 超时
+66.254.114.40: 229 ms
+210.140.139.133: 202 ms
+210.140.139.155: 超时
+151.101.66.133: 208 ms
+[2001:67c:2960:6464::2cf2:0da1]: 超时
+[2001:67c:2960:6464::17c5:ea7c]: 超时
+[2001:67c:2960:6464::36e6:4744]: 超时
+151.101.78.208: 261 ms
+[2001:67c:2960:6464::6797:9785]: 超时
+[2001:67c:2960:6464::9765:c32a]: 超时
+[2001:67c:2960:6464::23ba:e018]: 超时
+186.2.163.20: 242 ms
+198.251.89.38: 275 ms
+[2001:67c:2960:6464::9765:41c5]: 超时
+157.240.225.60: 265 ms
+151.101.194.167: 超时
+34.84.14.157: 132 ms
+140.82.113.18: 277 ms
+184.50.187.66: 271 ms
+production.cloudflare.docker.com: 超时
+217.20.158.136: 247 ms
+162.159.130.233: 250 ms
+13.35.219.115: 245 ms
+45.192.12.153: 265 ms
+162.159.152.17: 220 ms
+104.17.67.215: 215 ms
+104.16.25.14: 215 ms
+registry.ipv4.docker.com: 244 ms
+13.35.185.106: 260 ms
+195.8.215.140: 253 ms
+13.33.142.102: 242 ms
+consent.yahoo.com: 116 ms
+elb-io.us-east-1.aws.dckr.io: 261 ms
+13.35.222.88: 275 ms
+23.77.21.232: 342 ms
+34.233.59.41: 超时
+3.228.137.20: 超时
+测试结果仅供参考
 **********************
 PowerShell transcript end
-End time: 20260715091235
+End time: 20260715102526
 **********************
