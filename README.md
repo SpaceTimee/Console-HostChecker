@@ -3,7 +3,7 @@
 </br>
 
 ## 自我介绍
-**Console HostChecker**: 一只基于 **Pwsh(.Net8)** 的 Cealing Host 自动化检查工具
+**Console HostChecker**: 一只基于 **Pwsh(.Net8)** 的 Cealing Host 自动化检查脚本
 
 * 适用平台: Any
 
