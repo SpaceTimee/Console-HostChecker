@@ -1,21 +1,24 @@
 **********************
 PowerShell transcript start
-Start time: 20260717124746
+Start time: 20260717141951
 **********************
 Console HostChecker 启动!
-PS>TerminatingError(): "The running command stopped because the preference variable "ErrorActionPreference" or common parameter is set to Stop: 检测页面加载超时"
->> TerminatingError(): "The running command stopped because the preference variable "ErrorActionPreference" or common parameter is set to Stop: 检测页面加载超时"
->> TerminatingError(): "The running command stopped because the preference variable "ErrorActionPreference" or common parameter is set to Stop: 检测页面加载超时"
->> TerminatingError(): "The running command stopped because the preference variable "ErrorActionPreference" or common parameter is set to Stop: 检测页面加载超时"
-Exception: /home/runner/work/Console-HostChecker/Console-HostChecker/App.ps1:67
+PS>TerminatingError(): "The running command stopped because the preference variable "ErrorActionPreference" or common parameter is set to Stop: The running command stopped because the preference variable "ErrorActionPreference" or common parameter is set to Stop: 'Response status code does not indicate success: 403 (Forbidden).' Request sent: 'https://www.powershellgallery.com/api/v2/FindPackagesById()?%24filter=Id+eq+%27Console-CensorChecker%27+and+IsLatestVersion+eq+true&%24inlinecount=allpages&id=%27Console-CensorChecker%27'"
+>> TerminatingError(): "The running command stopped because the preference variable "ErrorActionPreference" or common parameter is set to Stop: The running command stopped because the preference variable "ErrorActionPreference" or common parameter is set to Stop: 'Response status code does not indicate success: 403 (Forbidden).' Request sent: 'https://www.powershellgallery.com/api/v2/FindPackagesById()?%24filter=Id+eq+%27Console-CensorChecker%27+and+IsLatestVersion+eq+true&%24inlinecount=allpages&id=%27Console-CensorChecker%27'"
+>> TerminatingError(): "The running command stopped because the preference variable "ErrorActionPreference" or common parameter is set to Stop: The running command stopped because the preference variable "ErrorActionPreference" or common parameter is set to Stop: 'Response status code does not indicate success: 403 (Forbidden).' Request sent: 'https://www.powershellgallery.com/api/v2/FindPackagesById()?%24filter=Id+eq+%27Console-CensorChecker%27+and+IsLatestVersion+eq+true&%24inlinecount=allpages&id=%27Console-CensorChecker%27'"
+>> TerminatingError(): "The running command stopped because the preference variable "ErrorActionPreference" or common parameter is set to Stop: The running command stopped because the preference variable "ErrorActionPreference" or common parameter is set to Stop: 'Response status code does not indicate success: 403 (Forbidden).' Request sent: 'https://www.powershellgallery.com/api/v2/FindPackagesById()?%24filter=Id+eq+%27Console-CensorChecker%27+and+IsLatestVersion+eq+true&%24inlinecount=allpages&id=%27Console-CensorChecker%27'"
+InvalidResult: /home/runner/work/Console-HostChecker/Console-HostChecker/App.ps1:64
 Line |
-  67 |  … ch ($testOutput in Receive-Job $testJobs -Wait -AutoRemoveJob) { Writ …
-     |                       ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-     | 检测页面加载超时
+  64 |              foreach ($testOutput in Receive-Job $testJobs) { Write-Ho …
+     |                                      ~~~~~~~~~~~~~~~~~~~~~
+     | The running command stopped because the preference variable
+     | "ErrorActionPreference" or common parameter is set to Stop: 'Response
+     | status code does not indicate success: 403 (Forbidden).' Request sent:
+     | 'https://www.powershellgallery.com/api/v2/FindPackagesById()?%24filter=Id+eq+%27Console-CensorChecker%27+and+IsLatestVersion+eq+true&%24inlinecount=allpages&id=%27Console-CensorChecker%27'
 
 PS>$global:?
 False
 **********************
 PowerShell transcript end
-End time: 20260717124829
+End time: 20260717141954
 **********************
