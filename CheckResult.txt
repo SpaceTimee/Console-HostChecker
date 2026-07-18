@@ -1,6 +1,6 @@
 **********************
 PowerShell transcript start
-Start time: 20260718163339
+Start time: 20260718173612
 **********************
 Console HostChecker 启动!
 PS>TerminatingError(): "The running command stopped because the preference variable "ErrorActionPreference" or common parameter is set to Stop: 检测页面加载超时"
@@ -17,5 +17,5 @@ PS>$global:?
 False
 **********************
 PowerShell transcript end
-End time: 20260718163422
+End time: 20260718173657
 **********************
