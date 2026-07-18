@@ -1,6 +1,6 @@
 **********************
 PowerShell transcript start
-Start time: 20260717235820
+Start time: 20260718024438
 **********************
 Console HostChecker 启动!
 104.16.89.20: 超时
@@ -141,5 +141,5 @@ registry.ipv4.docker.com: 超时
 测试结果仅供参考
 **********************
 PowerShell transcript end
-End time: 20260718000058
+End time: 20260718024719
 **********************
