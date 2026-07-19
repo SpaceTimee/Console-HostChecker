@@ -1,24 +1,145 @@
 **********************
 PowerShell transcript start
-Start time: 20260719220620
+Start time: 20260719230604
 **********************
 Console HostChecker 启动!
-PS>TerminatingError(): "The running command stopped because the preference variable "ErrorActionPreference" or common parameter is set to Stop: The running command stopped because the preference variable "ErrorActionPreference" or common parameter is set to Stop: 'Response status code does not indicate success: 403 (Forbidden).' Request sent: 'https://www.powershellgallery.com/api/v2/FindPackagesById()?%24filter=Id+eq+%27Console-CensorChecker%27+and+IsLatestVersion+eq+true&%24inlinecount=allpages&id=%27Console-CensorChecker%27'"
->> TerminatingError(): "The running command stopped because the preference variable "ErrorActionPreference" or common parameter is set to Stop: The running command stopped because the preference variable "ErrorActionPreference" or common parameter is set to Stop: 'Response status code does not indicate success: 403 (Forbidden).' Request sent: 'https://www.powershellgallery.com/api/v2/FindPackagesById()?%24filter=Id+eq+%27Console-CensorChecker%27+and+IsLatestVersion+eq+true&%24inlinecount=allpages&id=%27Console-CensorChecker%27'"
->> TerminatingError(): "The running command stopped because the preference variable "ErrorActionPreference" or common parameter is set to Stop: The running command stopped because the preference variable "ErrorActionPreference" or common parameter is set to Stop: 'Response status code does not indicate success: 403 (Forbidden).' Request sent: 'https://www.powershellgallery.com/api/v2/FindPackagesById()?%24filter=Id+eq+%27Console-CensorChecker%27+and+IsLatestVersion+eq+true&%24inlinecount=allpages&id=%27Console-CensorChecker%27'"
->> TerminatingError(): "The running command stopped because the preference variable "ErrorActionPreference" or common parameter is set to Stop: The running command stopped because the preference variable "ErrorActionPreference" or common parameter is set to Stop: 'Response status code does not indicate success: 403 (Forbidden).' Request sent: 'https://www.powershellgallery.com/api/v2/FindPackagesById()?%24filter=Id+eq+%27Console-CensorChecker%27+and+IsLatestVersion+eq+true&%24inlinecount=allpages&id=%27Console-CensorChecker%27'"
-InvalidResult: /home/runner/work/Console-HostChecker/Console-HostChecker/App.ps1:67
-Line |
-  67 |  … ch ($testOutput in Receive-Job $testJobs -Wait -AutoRemoveJob) { Writ …
-     |                       ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-     | The running command stopped because the preference variable
-     | "ErrorActionPreference" or common parameter is set to Stop: 'Response
-     | status code does not indicate success: 403 (Forbidden).' Request sent:
-     | 'https://www.powershellgallery.com/api/v2/FindPackagesById()?%24filter=Id+eq+%27Console-CensorChecker%27+and+IsLatestVersion+eq+true&%24inlinecount=allpages&id=%27Console-CensorChecker%27'
-
-PS>$global:?
-False
+:  ms
+:  ms
+:  ms
+:  ms
+:  ms
+:  ms
+:  ms
+:  ms
+:  ms
+:  ms
+:  ms
+:  ms
+:  ms
+:  ms
+:  ms
+:  ms
+:  ms
+:  ms
+:  ms
+:  ms
+:  ms
+:  ms
+:  ms
+:  ms
+:  ms
+:  ms
+:  ms
+:  ms
+:  ms
+:  ms
+:  ms
+:  ms
+:  ms
+:  ms
+:  ms
+:  ms
+:  ms
+:  ms
+:  ms
+:  ms
+:  ms
+:  ms
+:  ms
+:  ms
+:  ms
+:  ms
+:  ms
+:  ms
+:  ms
+:  ms
+:  ms
+:  ms
+:  ms
+:  ms
+:  ms
+:  ms
+:  ms
+:  ms
+:  ms
+:  ms
+:  ms
+:  ms
+:  ms
+:  ms
+:  ms
+:  ms
+:  ms
+:  ms
+:  ms
+:  ms
+:  ms
+:  ms
+:  ms
+:  ms
+:  ms
+:  ms
+:  ms
+:  ms
+:  ms
+:  ms
+:  ms
+:  ms
+:  ms
+:  ms
+:  ms
+:  ms
+:  ms
+:  ms
+:  ms
+:  ms
+:  ms
+:  ms
+:  ms
+:  ms
+:  ms
+:  ms
+:  ms
+:  ms
+:  ms
+:  ms
+:  ms
+:  ms
+:  ms
+:  ms
+:  ms
+:  ms
+:  ms
+:  ms
+:  ms
+:  ms
+:  ms
+:  ms
+:  ms
+:  ms
+:  ms
+:  ms
+:  ms
+:  ms
+:  ms
+:  ms
+:  ms
+:  ms
+:  ms
+:  ms
+:  ms
+:  ms
+:  ms
+:  ms
+:  ms
+:  ms
+:  ms
+:  ms
+:  ms
+:  ms
+:  ms
+测试结果仅供参考
 **********************
 PowerShell transcript end
-End time: 20260719220622
+End time: 20260719230849
 **********************
