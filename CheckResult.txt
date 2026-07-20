@@ -1,6 +1,6 @@
 **********************
 PowerShell transcript start
-Start time: 20260720120458
+Start time: 20260720142926
 **********************
 Console HostChecker 启动!
 :  ms
@@ -141,5 +141,5 @@ Console HostChecker 启动!
 测试结果仅供参考
 **********************
 PowerShell transcript end
-End time: 20260720120747
+End time: 20260720143206
 **********************
