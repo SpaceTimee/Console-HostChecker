@@ -1,145 +1,24 @@
 **********************
 PowerShell transcript start
-Start time: 20260723125633
+Start time: 20260723150707
 **********************
 Console HostChecker 启动!
-:  ms
-:  ms
-:  ms
-:  ms
-:  ms
-:  ms
-:  ms
-:  ms
-:  ms
-:  ms
-:  ms
-:  ms
-:  ms
-:  ms
-:  ms
-:  ms
-:  ms
-:  ms
-:  ms
-:  ms
-:  ms
-:  ms
-:  ms
-:  ms
-:  ms
-:  ms
-:  ms
-:  ms
-:  ms
-:  ms
-:  ms
-:  ms
-:  ms
-:  ms
-:  ms
-:  ms
-:  ms
-:  ms
-:  ms
-:  ms
-:  ms
-:  ms
-:  ms
-:  ms
-:  ms
-:  ms
-:  ms
-:  ms
-:  ms
-:  ms
-:  ms
-:  ms
-:  ms
-:  ms
-:  ms
-:  ms
-:  ms
-:  ms
-:  ms
-:  ms
-:  ms
-:  ms
-:  ms
-:  ms
-:  ms
-:  ms
-:  ms
-:  ms
-:  ms
-:  ms
-:  ms
-:  ms
-:  ms
-:  ms
-:  ms
-:  ms
-:  ms
-:  ms
-:  ms
-:  ms
-:  ms
-:  ms
-:  ms
-:  ms
-:  ms
-:  ms
-:  ms
-:  ms
-:  ms
-:  ms
-:  ms
-:  ms
-:  ms
-:  ms
-:  ms
-:  ms
-:  ms
-:  ms
-:  ms
-:  ms
-:  ms
-:  ms
-:  ms
-:  ms
-:  ms
-:  ms
-:  ms
-:  ms
-:  ms
-:  ms
-:  ms
-:  ms
-:  ms
-:  ms
-:  ms
-:  ms
-:  ms
-:  ms
-:  ms
-:  ms
-:  ms
-:  ms
-:  ms
-:  ms
-:  ms
-:  ms
-:  ms
-:  ms
-:  ms
-:  ms
-:  ms
-:  ms
-:  ms
-:  ms
-:  ms
-测试结果仅供参考
+PS>TerminatingError(): "The running command stopped because the preference variable "ErrorActionPreference" or common parameter is set to Stop: The running command stopped because the preference variable "ErrorActionPreference" or common parameter is set to Stop: The request was canceled due to the configured HttpClient.Timeout of 600 seconds elapsing."
+>> TerminatingError(): "The running command stopped because the preference variable "ErrorActionPreference" or common parameter is set to Stop: The running command stopped because the preference variable "ErrorActionPreference" or common parameter is set to Stop: The request was canceled due to the configured HttpClient.Timeout of 600 seconds elapsing."
+>> TerminatingError(): "The running command stopped because the preference variable "ErrorActionPreference" or common parameter is set to Stop: The running command stopped because the preference variable "ErrorActionPreference" or common parameter is set to Stop: The request was canceled due to the configured HttpClient.Timeout of 600 seconds elapsing."
+>> TerminatingError(): "The running command stopped because the preference variable "ErrorActionPreference" or common parameter is set to Stop: The running command stopped because the preference variable "ErrorActionPreference" or common parameter is set to Stop: The request was canceled due to the configured HttpClient.Timeout of 600 seconds elapsing."
+InvalidResult: /home/runner/work/Console-HostChecker/Console-HostChecker/App.ps1:64
+Line |
+  64 |              foreach ($testOutput in Receive-Job $testJobs) { Write-Ho …
+     |                                      ~~~~~~~~~~~~~~~~~~~~~
+     | The running command stopped because the preference variable
+     | "ErrorActionPreference" or common parameter is set to Stop: The request
+     | was canceled due to the configured HttpClient.Timeout of 600 seconds
+     | elapsing.
+
+PS>$global:?
+False
 **********************
 PowerShell transcript end
-End time: 20260723125916
+End time: 20260723151709
 **********************
