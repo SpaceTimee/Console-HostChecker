@@ -20,43 +20,46 @@ Class App {
 
     hidden [array] CreateCheckJobs([string] $hostPath) {
         return @(Start-ThreadJob {
-            param ([string] $hostPath)
+                param ([string] $hostPath)
 
-            [hashtable] $seenTargets = @{}
-            [string[]] $hostTargets = @(
-                foreach ($hostRule in ConvertFrom-Json (Get-Content -LiteralPath $hostPath -Raw)) {
-                    if ([string]::IsNullOrWhiteSpace($hostRule[2]) -or $seenTargets.ContainsKey($hostRule[2])) { continue }
-                    $seenTargets[$hostRule[2]] = $true
-                    $hostRule[2]
+                [hashtable] $seenTargets = @{}
+                [string[]] $hostTargets = @(
+                    foreach ($hostRule in ConvertFrom-Json (Get-Content -LiteralPath $hostPath -Raw)) {
+                        if ([string]::IsNullOrWhiteSpace($hostRule[2]) -or $seenTargets.ContainsKey($hostRule[2])) { continue }
+                        $seenTargets[$hostRule[2]] = $true
+                        $hostRule[2]
+                    }
+                )
+
+                if ($hostTargets.Count -eq 0) { return }
+
+                if (-not (Get-Module -ListAvailable "Console-CensorChecker")) {
+                    Install-PSResource "Console-CensorChecker" -TrustRepository -ErrorAction Stop
                 }
-            )
 
-            if ($hostTargets.Count -eq 0) { return }
+                Import-Module "Console-CensorChecker" -ErrorAction Stop
 
-            if (-not (Get-Module -ListAvailable "Console-CensorChecker")) {
-                Install-PSResource "Console-CensorChecker" -TrustRepository -ErrorAction Stop
-            }
-
-            Import-Module "Console-CensorChecker" -ErrorAction Stop
-
-            Invoke-Check $hostTargets | ForEach-Object {
-                "$($_.Target): $($_.Latency -eq [int]::MaxValue ? "超时" : "$($_.Latency) ms")"
-            }
-        } -ArgumentList $hostPath)
+                foreach ($result in Invoke-Check $hostTargets) {
+                    foreach ($target in $result.Keys) {
+                        [int] $latency = $result[$target]
+                        "$($target): $($latency -eq [int]::MaxValue ? "超时" : "$latency ms")"
+                    }
+                }
+            } -ArgumentList $hostPath)
     }
 
     hidden [array] CreateTestJobs([string] $hostPath) {
         return @(foreach ($hostRule in ConvertFrom-Json (Get-Content -LiteralPath $hostPath -Raw)) {
-            Start-ThreadJob {
-                param ([array] $hostRule)
+                Start-ThreadJob {
+                    param ([array] $hostRule)
 
-                if ([string]::IsNullOrWhiteSpace($hostRule[2])) { continue }
+                    if ([string]::IsNullOrWhiteSpace($hostRule[2])) { continue }
 
-                [string] $testResult = (Test-Connection $hostRule[2] -TcpPort 443 -Count 1) ? "成功" : "失败 ($($hostRule[0]))"
+                    [string] $testResult = (Test-Connection $hostRule[2] -TcpPort 443 -Count 1) ? "成功" : "失败 ($($hostRule[0]))"
 
-                "$($hostRule[2]): $testResult"
-            } -ArgumentList (, $hostRule)
-        })
+                    "$($hostRule[2]): $testResult"
+                } -ArgumentList (, $hostRule)
+            })
     }
 
     hidden [void] WriteTestResult([array] $testJobs) {
